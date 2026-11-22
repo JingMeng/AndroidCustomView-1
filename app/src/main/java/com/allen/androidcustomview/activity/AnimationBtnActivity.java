@@ -1,6 +1,6 @@
 package com.allen.androidcustomview.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -24,10 +24,11 @@ public class AnimationBtnActivity extends AppCompatActivity {
 
             @Override
             public void animationFinish() {
-                Toast.makeText(AnimationBtnActivity.this,"动画执行完毕",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AnimationBtnActivity.this,"鍔ㄧ敾鎵ц瀹屾瘯",Toast.LENGTH_SHORT).show();
 //                finish();
                 animationButton.reset();
             }
         });
     }
 }
+

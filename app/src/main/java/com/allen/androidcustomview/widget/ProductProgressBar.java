@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -17,8 +17,7 @@ import java.text.DecimalFormat;
 /**
  * Created by Allen on 2017/11/30.
  * <p>
- * 产品购买进度条
- */
+ * 浜у搧璐拱杩涘害鏉? */
 
 public class ProductProgressBar extends View {
 
@@ -33,65 +32,58 @@ public class ProductProgressBar extends View {
 
     private int mViewHeight;
     /**
-     * 进度
+     * 杩涘害
      */
     private float mProgress;
-    //描述文字的高度
     private float textHeight;
-    //描述文字的高度
     private float textWidth;
 
     /**
-     * 当前进度
+     * 褰撳墠杩涘害
      */
     private float currentProgress;
 
     /**
-     * 进度动画
+     * 杩涘害鍔ㄧ敾
      */
     private ValueAnimator progressAnimator;
 
     /**
-     * 动画执行时间
+     * 鍔ㄧ敾鎵ц鏃堕棿
      */
     private int duration = 1000;
     /**
-     * 动画延时启动时间
+     * 鍔ㄧ敾寤舵椂鍚姩鏃堕棿
      */
     private int startDelay = 500;
 
     /**
-     * 进度条画笔的宽度
+     * 杩涘害鏉＄敾绗旂殑瀹藉害
      */
     private int progressPaintWidth;
 
     private int progressHeight;
 
     /**
-     * 进度条距离提示框的高度
-     */
+     * 杩涘害鏉¤窛绂绘彁绀烘鐨勯珮搴?     */
     private int progressMarginTop;
 
     /**
-     * 进度移动的距离
-     */
+     * 杩涘害绉诲姩鐨勮窛绂?     */
     private float moveDis;
 
     private Rect textRect = new Rect();
 
-    private String textString = "已售0%";
+    private String textString = "宸插敭0%";
     /**
-     * 百分比文字字体大小
-     */
+     * 鐧惧垎姣旀枃瀛楀瓧浣撳ぇ灏?     */
     private int textPaintSize;
 
     /**
-     * 进度条背景颜色
-     */
+     * 杩涘害鏉¤儗鏅鑹?     */
     private int bgColor = 0xFFeaeef0;
     /**
-     * 进度条颜色
-     */
+     * 杩涘害鏉￠鑹?     */
     private int progressColor = 0xFFf66b12;
 
 
@@ -99,12 +91,11 @@ public class ProductProgressBar extends View {
     private RectF progressRectF = new RectF();
 
     /**
-     * 圆角矩形的圆角半径
-     */
+     * 鍦嗚鐭╁舰鐨勫渾瑙掑崐寰?     */
     private int roundRectRadius;
 
     /**
-     * 进度监听回调
+     * 杩涘害鐩戝惉鍥炶皟
      */
     private ProgressListener progressListener;
 
@@ -124,7 +115,7 @@ public class ProductProgressBar extends View {
     }
 
     /**
-     * 初始化画笔宽度及view大小
+     * 鍒濆鍖栫敾绗斿搴﹀強view澶у皬
      */
     private void init() {
         progressPaintWidth = dp2px(1);
@@ -134,8 +125,7 @@ public class ProductProgressBar extends View {
         textHeight = dp2px(10);
         progressMarginTop = dp2px(4);
 
-        //view真实的高度
-        mViewHeight = (int) (textHeight + progressMarginTop + progressPaintWidth * 2 + progressHeight);
+        //view鐪熷疄鐨勯珮搴?        mViewHeight = (int) (textHeight + progressMarginTop + progressPaintWidth * 2 + progressHeight);
     }
 
 
@@ -145,8 +135,7 @@ public class ProductProgressBar extends View {
     }
 
     /**
-     * 初始化文字画笔
-     */
+     * 鍒濆鍖栨枃瀛楃敾绗?     */
     private void initTextPaint() {
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setTextSize(textPaintSize);
@@ -157,11 +146,11 @@ public class ProductProgressBar extends View {
 
 
     /**
-     * 统一处理paint
+     * 缁熶竴澶勭悊paint
      *
-     * @param strokeWidth 画笔宽度
-     * @param color       颜色
-     * @param style       风格
+     * @param strokeWidth 鐢荤瑪瀹藉害
+     * @param color       棰滆壊
+     * @param style       椋庢牸
      * @return paint
      */
     private Paint getPaint(int strokeWidth, int color, Paint.Style style) {
@@ -185,7 +174,7 @@ public class ProductProgressBar extends View {
     }
 
     /**
-     * 测量宽度
+     * 娴嬮噺瀹藉害
      *
      * @param mode
      * @param width
@@ -204,7 +193,7 @@ public class ProductProgressBar extends View {
     }
 
     /**
-     * 测量高度
+     * 娴嬮噺楂樺害
      *
      * @param mode
      * @param height
@@ -227,12 +216,11 @@ public class ProductProgressBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        //绘制文字
+        //缁樺埗鏂囧瓧
         drawText(canvas, textString);
-        //背景
+        //鑳屾櫙
         drawBgProgress(canvas);
-        //进度条
-        drawProgress(canvas);
+        //杩涘害鏉?        drawProgress(canvas);
     }
 
     private void drawBgProgress(Canvas canvas) {
@@ -253,9 +241,9 @@ public class ProductProgressBar extends View {
 
 
     /**
-     * 绘制文字
+     * 缁樺埗鏂囧瓧
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     private void drawText(Canvas canvas, String textString) {
         textRect.left = (int) moveDis;
@@ -264,14 +252,12 @@ public class ProductProgressBar extends View {
         textRect.bottom = (int) textHeight;
         Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
         int baseline = (textRect.bottom + textRect.top - fontMetrics.bottom - fontMetrics.top) / 2;
-        //文字绘制到整个布局的中心位置
-        canvas.drawText(textString, textRect.centerX(), baseline, textPaint);
+        //鏂囧瓧缁樺埗鍒版暣涓竷灞€鐨勪腑蹇冧綅缃?        canvas.drawText(textString, textRect.centerX(), baseline, textPaint);
     }
 
 
     /**
-     * 进度移动动画  通过插值的方式改变移动的距离
-     */
+     * 杩涘害绉诲姩鍔ㄧ敾  閫氳繃鎻掑€肩殑鏂瑰紡鏀瑰彉绉诲姩鐨勮窛绂?     */
     private void initAnimation() {
         progressAnimator = ValueAnimator.ofFloat(0, mProgress);
         progressAnimator.setDuration(duration);
@@ -281,13 +267,13 @@ public class ProductProgressBar extends View {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float value = (float) valueAnimator.getAnimatedValue();
-                textString = "已售" + formatNum((int) value) + "%";
+                textString = "宸插敭" + formatNum((int) value) + "%";
                 textWidth = textPaint.measureText(textString);
                 currentProgress = value * mWidth / 100;
                 if (progressListener != null) {
                     progressListener.currentProgressListener(value);
                 }
-                //移动百分比提示框，只有当前进度到提示框中间位置之后开始移动，当进度框移动到最右边的时候停止移动，但是进度条还可以继续移动
+                //绉诲姩鐧惧垎姣旀彁绀烘锛屽彧鏈夊綋鍓嶈繘搴﹀埌鎻愮ず妗嗕腑闂翠綅缃箣鍚庡紑濮嬬Щ鍔紝褰撹繘搴︽绉诲姩鍒版渶鍙宠竟鐨勬椂鍊欏仠姝㈢Щ鍔紝浣嗘槸杩涘害鏉¤繕鍙互缁х画绉诲姩
                 if (currentProgress >= textWidth && currentProgress <= mWidth) {
                     moveDis = currentProgress - textWidth;
                 }
@@ -300,14 +286,14 @@ public class ProductProgressBar extends View {
     }
 
     /**
-     * 回调接口
+     * 鍥炶皟鎺ュ彛
      */
     public interface ProgressListener {
         void currentProgressListener(float currentProgress);
     }
 
     /**
-     * 回调监听事件
+     * 鍥炶皟鐩戝惉浜嬩欢
      *
      * @param listener
      * @return
@@ -324,7 +310,7 @@ public class ProductProgressBar extends View {
     }
 
     /**
-     * 格式化数字(保留一位小数)
+     * 鏍煎紡鍖栨暟瀛?淇濈暀涓€浣嶅皬鏁?
      *
      * @param money
      * @return
@@ -355,3 +341,4 @@ public class ProductProgressBar extends View {
                 spVal, getResources().getDisplayMetrics());
     }
 }
+

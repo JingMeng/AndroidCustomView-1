@@ -7,7 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -19,7 +19,7 @@ import com.allen.androidcustomview.R;
 /**
  * Created by Allen on 2017/5/14.
  * <p>
- * 自定义圆形进度条
+ * 鑷畾涔夊渾褰㈣繘搴︽潯
  */
 
 public class CircleProgressBarView extends View {
@@ -28,76 +28,70 @@ public class CircleProgressBarView extends View {
 
 
     /**
-     * 圆心x坐标
+     * 鍦嗗績x鍧愭爣
      */
     private float centerX;
     /**
-     * 圆心y坐标
+     * 鍦嗗績y鍧愭爣
      */
     private float centerY;
     /**
-     * 圆的半径
+     * 鍦嗙殑鍗婂緞
      */
     private float radius;
 
     /**
-     * 进度
+     * 杩涘害
      */
     private float mProgress;
 
     /**
-     * 当前进度
+     * 褰撳墠杩涘害
      */
     private float currentProgress;
 
     /**
-     * 圆形进度条底色画笔
-     */
+     * 鍦嗗舰杩涘害鏉″簳鑹茬敾绗?     */
     private Paint circleBgPaint;
     /**
-     * 圆形进度条进度画笔
-     */
+     * 鍦嗗舰杩涘害鏉¤繘搴︾敾绗?     */
     private Paint progressPaint;
 
     /**
-     * 进度条背景颜色
-     */
+     * 杩涘害鏉¤儗鏅鑹?     */
     private int circleBgColor = 0xFFe1e5e8;
     /**
-     * 进度条颜色
-     */
+     * 杩涘害鏉￠鑹?     */
     private int progressColor = 0xFFf66b12;
 
     /**
-     * 默认圆环的宽度
-     */
+     * 榛樿鍦嗙幆鐨勫搴?     */
     private int defaultStrokeWidth = 10;
     /**
-     * 圆形背景画笔宽度
+     * 鍦嗗舰鑳屾櫙鐢荤瑪瀹藉害
      */
     private int circleBgStrokeWidth = defaultStrokeWidth;
     /**
-     * 圆形进度画笔宽度
+     * 鍦嗗舰杩涘害鐢荤瑪瀹藉害
      */
     private int progressStrokeWidth = defaultStrokeWidth;
 
 
     /**
-     * 扇形所在矩形
-     */
+     * 鎵囧舰鎵€鍦ㄧ煩褰?     */
     private RectF rectF = new RectF();
 
     /**
-     * 进度动画
+     * 杩涘害鍔ㄧ敾
      */
     private ValueAnimator progressAnimator;
 
     /**
-     * 动画执行时间
+     * 鍔ㄧ敾鎵ц鏃堕棿
      */
     private int duration = 1000;
     /**
-     * 动画延时启动时间
+     * 鍔ㄧ敾寤舵椂鍚姩鏃堕棿
      */
     private int startDelay = 500;
 
@@ -159,8 +153,7 @@ public class CircleProgressBarView extends View {
     }
 
     /**
-     * 初始化文字画笔
-     */
+     * 鍒濆鍖栨枃瀛楃敾绗?     */
     private void initTextPaint() {
         centerProgressTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         centerProgressTextPaint.setTextSize(centerProgressTextSize);
@@ -219,8 +212,7 @@ public class CircleProgressBarView extends View {
     private void drawCenterProgressText(Canvas canvas, String currentProgress) {
         Paint.FontMetricsInt fontMetrics = centerProgressTextPaint.getFontMetricsInt();
         int baseline = (int) ((rectF.bottom + rectF.top - fontMetrics.bottom - fontMetrics.top) / 2);
-        //文字绘制到整个布局的中心位置
-        canvas.drawText(currentProgress, rectF.centerX(), baseline, centerProgressTextPaint);
+        //鏂囧瓧缁樺埗鍒版暣涓竷灞€鐨勪腑蹇冧綅缃?        canvas.drawText(currentProgress, rectF.centerX(), baseline, centerProgressTextPaint);
     }
 
 
@@ -242,7 +234,7 @@ public class CircleProgressBarView extends View {
 
 
     /**
-     * 传入一个进度值，从0到progress动画变化
+     * 浼犲叆涓€涓繘搴﹀€硷紝浠?鍒皃rogress鍔ㄧ敾鍙樺寲
      *
      * @param progress
      * @return
@@ -254,7 +246,7 @@ public class CircleProgressBarView extends View {
     }
 
     /**
-     * 实时进度，适用于下载进度回调时候之类的场景
+     * 瀹炴椂杩涘害锛岄€傜敤浜庝笅杞借繘搴﹀洖璋冩椂鍊欎箣绫荤殑鍦烘櫙
      *
      * @param progress
      * @return
@@ -277,7 +269,7 @@ public class CircleProgressBarView extends View {
     }
 
     /**
-     * 将一个小数四舍五入，保留两位小数返回
+     * 灏嗕竴涓皬鏁板洓鑸嶄簲鍏ワ紝淇濈暀涓や綅灏忔暟杩斿洖
      *
      * @param originNum
      * @return
@@ -308,3 +300,4 @@ public class CircleProgressBarView extends View {
 
     }
 }
+

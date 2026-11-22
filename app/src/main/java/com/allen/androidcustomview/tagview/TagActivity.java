@@ -1,9 +1,9 @@
 package com.allen.androidcustomview.tagview;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.allen.androidcustomview.R;
 
@@ -31,19 +31,19 @@ public class TagActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        tagBeanList.add(new TagBean("1","准时"));
-        tagBeanList.add(new TagBean("2","非常绅士"));
+        tagBeanList.add(new TagBean("1","鍑嗘椂"));
+        tagBeanList.add(new TagBean("2","闈炲父缁呭＋"));
         tagBeanList.add(new TagBean("3","非常有礼貌"));
-        tagBeanList.add(new TagBean("4","很会照顾女生"));
-        tagBeanList.add(new TagBean("5","我的男神是个大暖男哦"));
-        tagBeanList.add(new TagBean("6","谈吐优雅"));
+        tagBeanList.add(new TagBean("4","寰堜細鐓ч【濂崇敓"));
+        tagBeanList.add(new TagBean("5","鎴戠殑鐢风鏄釜澶ф殩鐢峰摝"));
+        tagBeanList.add(new TagBean("6","璋堝悙浼橀泤"));
         tagBeanList.add(new TagBean("7","送我到楼下"));
-        tagBeanList.add(new TagBean("9","迟到"));
-        tagBeanList.add(new TagBean("10","态度恶劣"));
-        tagBeanList.add(new TagBean("11","有不礼貌行为"));
-        tagBeanList.add(new TagBean("12","有侮辱性语言有暴力倾向"));
-        tagBeanList.add(new TagBean("13","人身攻击"));
-        tagBeanList.add(new TagBean("14","临时改变行程"));
+        tagBeanList.add(new TagBean("9","杩熷埌"));
+        tagBeanList.add(new TagBean("10","鎬佸害鎭跺姡"));
+        tagBeanList.add(new TagBean("11","鏈変笉绀艰矊琛屼负"));
+        tagBeanList.add(new TagBean("12","鏈変井杈辨€ц瑷€鏈夋毚鍔涘€惧悜"));
+        tagBeanList.add(new TagBean("13","浜鸿韩鏀诲嚮"));
+        tagBeanList.add(new TagBean("14","涓存椂鏀瑰彉琛岀▼"));
         tagBeanList.add(new TagBean("15","客户迟到并无理要求延长约会时间"));
     }
 
@@ -67,3 +67,4 @@ public class TagActivity extends AppCompatActivity {
         tagRecyclerView = (RecyclerView) findViewById(R.id.tag_rv);
     }
 }
+

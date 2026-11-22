@@ -1,6 +1,6 @@
 package com.allen.androidcustomview.tagview;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +15,7 @@ import java.util.List;
 /**
  * Created by Allen on 2017/4/14.
  *
- * 评论页面的适配器
- */
+ * 璇勮椤甸潰鐨勯€傞厤鍣? */
 
 public class TagAdapter extends RecyclerView.Adapter<TagAdapter.ViewHolder> {
 
@@ -78,3 +77,4 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.ViewHolder> {
         return selectList;
     }
 }
+

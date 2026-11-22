@@ -2,9 +2,9 @@ package com.allen.androidcustomview.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.allen.androidcustomview.R;
@@ -45,19 +45,19 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
     }
 
     private List<TypeBean> getData() {
-        typeBeans.add(new TypeBean("气泡漂浮动画", 0));
+        typeBeans.add(new TypeBean("姘旀场婕傛诞鍔ㄧ敾", 0));
         typeBeans.add(new TypeBean("波浪动画--贝塞尔曲线实现", 1));
         typeBeans.add(new TypeBean("波浪动画--正余弦函数实现", 2));
-        typeBeans.add(new TypeBean("水波（雷达）扩散效果", 3));
-        typeBeans.add(new TypeBean("RecyclerView实现另类的Tag标签", 4));
+        typeBeans.add(new TypeBean("姘存尝锛堥浄杈撅級鎵╂暎鏁堟灉", 3));
+        typeBeans.add(new TypeBean("RecyclerView瀹炵幇鍙︾被鐨凾ag鏍囩", 4));
         typeBeans.add(new TypeBean("按钮自定义动画", 5));
-        typeBeans.add(new TypeBean("自定义支付密码输入框", 6));
-        typeBeans.add(new TypeBean("自定义进度条", 7));
-        typeBeans.add(new TypeBean("使用的带动画的view", 8));
+        typeBeans.add(new TypeBean("鑷畾涔夋敮浠樺瘑鐮佽緭鍏ユ", 6));
+        typeBeans.add(new TypeBean("鑷畾涔夎繘搴︽潯", 7));
+        typeBeans.add(new TypeBean("浣跨敤鐨勫甫鍔ㄧ敾鐨剉iew", 8));
         typeBeans.add(new TypeBean("粘性小球", 9));
         typeBeans.add(new TypeBean("banner", 10));
         typeBeans.add(new TypeBean("吸顶效果--一行代码实现", 11));
-        typeBeans.add(new TypeBean("水波+船只动画", 12));
+        typeBeans.add(new TypeBean("姘存尝+鑸瑰彧鍔ㄧ敾", 12));
         return typeBeans;
     }
 
@@ -106,3 +106,4 @@ public class MainActivity extends AppCompatActivity implements BaseQuickAdapter.
         }
     }
 }
+

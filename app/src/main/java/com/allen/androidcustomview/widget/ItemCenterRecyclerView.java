@@ -1,8 +1,8 @@
 package com.allen.androidcustomview.widget;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -47,16 +47,15 @@ public class ItemCenterRecyclerView extends RecyclerView {
             int recyclerViewCenterX = getLeft() + getWidth() / 2;
             int itemCenterX = location[0] + v.getWidth() / 2;
 
-            //★两边的图片缩放比例
+            //鈽呬袱杈圭殑鍥剧墖缂╂斁姣斾緥
             float scale = 0.8f;
-            //★某个item中心X坐标距recyclerView中心X坐标的偏移量
+            //鈽呮煇涓猧tem涓績X鍧愭爣璺漴ecyclerView涓績X鍧愭爣鐨勫亸绉婚噺
             int offX = Math.abs(itemCenterX - recyclerViewCenterX);
-            //★在一个item的宽度范围内，item从1缩放至scale，那么改变了（1-scale），
-            //从下列公式算出随着offX变化，item的变化缩放百分比
+            //鈽呭湪涓€涓猧tem鐨勫搴﹁寖鍥村唴锛宨tem浠?缂╂斁鑷硈cale锛岄偅涔堟敼鍙樹簡锛?-scale锛夛紝
+            //浠庝笅鍒楀叕寮忕畻鍑洪殢鐫€offX鍙樺寲锛宨tem鐨勫彉鍖栫缉鏀剧櫨鍒嗘瘮
             float percent = offX * (1 - scale) / v.getWidth();
-            //★取反哟
+            //鈽呭彇鍙嶅摕
             float interpretateScale = 1 - percent;
-            //这个if不走的话，得到的是多级渐变模式
             if (interpretateScale < scale) {
                 interpretateScale = scale;
             }
@@ -67,3 +66,4 @@ public class ItemCenterRecyclerView extends RecyclerView {
 
 
 }
+

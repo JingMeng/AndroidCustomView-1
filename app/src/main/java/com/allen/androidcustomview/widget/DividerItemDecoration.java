@@ -5,8 +5,8 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 /**
@@ -14,7 +14,7 @@ import android.view.View;
  *      @author : xiaoyao
  *      e-mail  : xiaoyao@51vest.com
  *      date    : 2018/02/05
- *      desc    : recyclerview的分割线
+ *      desc    : recyclerview鐨勫垎鍓茬嚎
  *      version : 1.0
  * </pre>
  */
@@ -66,7 +66,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
         for (int i = 0; i < childCount; i++) {
             final View child = parent.getChildAt(i);
-            android.support.v7.widget.RecyclerView v = new android.support.v7.widget.RecyclerView(
+            androidx.recyclerview.widget.RecyclerView v = new androidx.recyclerview.widget.RecyclerView(
                     parent.getContext());
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                     .getLayoutParams();
@@ -104,14 +104,11 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     /**
-     * 单位转换工具类
-     *
-     * @param context  上下文对象
-     * @param dipValue 值
-     * @return 返回值
-     */
+     * 鍗曚綅杞崲宸ュ叿绫?     *
+     * @param context  涓婁笅鏂囧璞?     * @param dipValue 鍊?     * @return 杩斿洖鍊?     */
     private int dip2px(Context context, float dipValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
     }
 }
+

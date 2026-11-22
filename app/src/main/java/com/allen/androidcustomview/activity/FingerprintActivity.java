@@ -1,9 +1,9 @@
 package com.allen.androidcustomview.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.core.hardware.fingerprint.FingerprintManagerCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -58,8 +58,8 @@ public class FingerprintActivity extends AppCompatActivity {
 
             @Override
             public void onInsecurity() {
-                Toast.makeText(FingerprintActivity.this, "当前设备未处于安全保护中", Toast.LENGTH_LONG).show();
-                Log.e(TAG, "当前设备未处于安全保护中");
+                Toast.makeText(FingerprintActivity.this, "褰撳墠璁惧鏈浜庡畨鍏ㄤ繚鎶や腑", Toast.LENGTH_LONG).show();
+                Log.e(TAG, "褰撳墠璁惧鏈浜庡畨鍏ㄤ繚鎶や腑");
             }
 
             @Override
@@ -83,9 +83,9 @@ public class FingerprintActivity extends AppCompatActivity {
 
             @Override
             public void onAuthenticationFailed() {
-                Toast.makeText(FingerprintActivity.this, "解锁失败", Toast.LENGTH_LONG).show();
+                Toast.makeText(FingerprintActivity.this, "瑙ｉ攣澶辫触", Toast.LENGTH_LONG).show();
 
-                Log.e(TAG, "解锁失败");
+                Log.e(TAG, "瑙ｉ攣澶辫触");
             }
 
             @Override
@@ -97,10 +97,11 @@ public class FingerprintActivity extends AppCompatActivity {
 
             @Override
             public void onAuthenticationSucceeded(FingerprintManagerCompat.AuthenticationResult result) {
-                Toast.makeText(FingerprintActivity.this, "解锁成功", Toast.LENGTH_LONG).show();
-                Log.e(TAG, "解锁成功");
+                Toast.makeText(FingerprintActivity.this, "瑙ｉ攣鎴愬姛", Toast.LENGTH_LONG).show();
+                Log.e(TAG, "瑙ｉ攣鎴愬姛");
                 resultTv.setText(result.getClass().getName());
             }
         });
     }
 }
+

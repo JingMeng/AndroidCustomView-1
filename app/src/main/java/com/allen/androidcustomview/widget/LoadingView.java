@@ -11,7 +11,7 @@ import android.graphics.Path;
 import android.graphics.PathEffect;
 import android.graphics.PathMeasure;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -20,8 +20,7 @@ import android.view.animation.LinearInterpolator;
 /**
  * Created by Allen on 2017/12/4.
  * <p>
- * 加载view带动画
- */
+ * 鍔犺浇view甯﹀姩鐢? */
 
 public class LoadingView extends View {
 
@@ -40,39 +39,36 @@ public class LoadingView extends View {
     private int paintWidth;
 
     /**
-     * 绘制圆弧区域
+     * 缁樺埗鍦嗗姬鍖哄煙
      */
     private RectF rectF = new RectF();
 
     /**
-     * 默认圆背景颜色
-     */
+     * 榛樿鍦嗚儗鏅鑹?     */
     private int bgColor = 0xFFe1e5e8;
     /**
-     * 圆弧进度条颜色
-     */
+     * 鍦嗗姬杩涘害鏉￠鑹?     */
     private int progressColor = 0xFFf66b12;
 
     /**
-     * 动画执行时间
+     * 鍔ㄧ敾鎵ц鏃堕棿
      */
     private int duration = 800;
     /**
-     * 动画延时启动时间
+     * 鍔ㄧ敾寤舵椂鍚姩鏃堕棿
      */
     private int startDelay = 0;
 
     /**
-     * 圆弧开始偏移角度
-     */
+     * 鍦嗗姬寮€濮嬪亸绉昏搴?     */
     private float startAngle = 0;
     /**
-     * 偏移长度
+     * 鍋忕Щ闀垮害
      */
     private float sweepAngle = 20;
 
     /**
-     * 圆弧转圈
+     * 鍦嗗姬杞湀
      */
     private ValueAnimator animatorDrawLoading;
 
@@ -81,36 +77,32 @@ public class LoadingView extends View {
      */
     private ValueAnimator animatorDrawArcToCircle;
     /**
-     * 绘制对勾（√）的动画
+     * 缁樺埗瀵瑰嬀锛堚垰锛夌殑鍔ㄧ敾
      */
     private ValueAnimator animatorDrawOk;
     /**
-     * 路径--用来获取对勾的路径
-     */
+     * 璺緞--鐢ㄦ潵鑾峰彇瀵瑰嬀鐨勮矾寰?     */
     private Path path = new Path();
     /**
-     * 取路径的长度
+     * 鍙栬矾寰勭殑闀垮害
      */
     private PathMeasure pathMeasure;
     /**
-     * 对路径处理实现绘制动画效果
-     */
+     * 瀵硅矾寰勫鐞嗗疄鐜扮粯鍒跺姩鐢绘晥鏋?     */
     private PathEffect effect;
 
 
     /**
-     * 是否开始绘制对勾
-     */
+     * 鏄惁寮€濮嬬粯鍒跺鍕?     */
     private boolean startDrawOk = false;
 
     /**
-     * 动画集
-     */
+     * 鍔ㄧ敾闆?     */
     private AnimatorSet animatorSet = new AnimatorSet();
 
 
     /**
-     * 点击事件及动画事件2完成回调
+     * 鐐瑰嚮浜嬩欢鍙婂姩鐢讳簨浠?瀹屾垚鍥炶皟
      */
     private LoadingViewListener loadingViewListener;
 
@@ -141,11 +133,11 @@ public class LoadingView extends View {
     }
 
     /**
-     * 统一处理paint
+     * 缁熶竴澶勭悊paint
      *
-     * @param strokeWidth 画笔宽度
-     * @param color       颜色
-     * @param style       风格
+     * @param strokeWidth 鐢荤瑪瀹藉害
+     * @param color       棰滆壊
+     * @param style       椋庢牸
      * @return paint
      */
     private Paint getPaint(int strokeWidth, int color, Paint.Style style) {
@@ -189,11 +181,10 @@ public class LoadingView extends View {
     }
 
     /**
-     * 绘制对勾
+     * 缁樺埗瀵瑰嬀
      */
     private void initOk() {
-        //对勾的路径
-        path.moveTo(mWidth / 8 * 3, mHeight / 2);
+        //瀵瑰嬀鐨勮矾寰?        path.moveTo(mWidth / 8 * 3, mHeight / 2);
         path.lineTo(mWidth / 2, mHeight / 5 * 3);
         path.lineTo(mWidth / 3 * 2, mHeight / 5 * 2);
 
@@ -201,7 +192,7 @@ public class LoadingView extends View {
     }
 
     /**
-     * 初始化弧度转圈的动画
+     * 鍒濆鍖栧姬搴﹁浆鍦堢殑鍔ㄧ敾
      */
     private void initLoadingAnimation() {
         animatorDrawLoading = ValueAnimator.ofFloat(0, 360);
@@ -225,8 +216,7 @@ public class LoadingView extends View {
     }
 
     /**
-     * 初始化弧度变圆动画
-     */
+     * 鍒濆鍖栧姬搴﹀彉鍦嗗姩鐢?     */
     private void initArcToCircleAnimation() {
         animatorDrawArcToCircle = ValueAnimator.ofFloat(sweepAngle, 360);
         animatorDrawArcToCircle.setDuration(duration);
@@ -244,8 +234,7 @@ public class LoadingView extends View {
 
 
     /**
-     * 绘制对勾的动画
-     */
+     * 缁樺埗瀵瑰嬀鐨勫姩鐢?     */
     private void initOkAnimation() {
         animatorDrawOk = ValueAnimator.ofFloat(1, 0);
         animatorDrawOk.setDuration(duration);
@@ -263,8 +252,7 @@ public class LoadingView extends View {
     }
 
     /**
-     * 初始化所有动画
-     */
+     * 鍒濆鍖栨墍鏈夊姩鐢?     */
     private void initAnimatorSet() {
         initLoadingAnimation();
         initArcToCircleAnimation();
@@ -301,7 +289,7 @@ public class LoadingView extends View {
     }
 
     /**
-     * 传入一个进度值，从0到progress动画变化
+     * 浼犲叆涓€涓繘搴﹀€硷紝浠?鍒皃rogress鍔ㄧ敾鍙樺寲
      */
     public LoadingView startAnimation() {
         startDrawOk = false;
@@ -315,11 +303,11 @@ public class LoadingView extends View {
     }
 
     /**
-     * 接口回调
+     * 鎺ュ彛鍥炶皟
      */
     public interface LoadingViewListener {
         /**
-         * 动画完成回调
+         * 鍔ㄧ敾瀹屾垚鍥炶皟
          */
         void animationFinish();
     }
@@ -334,3 +322,4 @@ public class LoadingView extends View {
                 dpVal, getResources().getDisplayMetrics());
     }
 }
+

@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -17,7 +17,7 @@ import android.view.animation.BounceInterpolator;
 
 /**
  * Created by xiaoyao on 2017/9/7.
- * 仿QQ消息红点拖拽效果view
+ * 浠縌Q娑堟伅绾㈢偣鎷栨嫿鏁堟灉view
  */
 
 public class DragBallView extends View {
@@ -34,35 +34,26 @@ public class DragBallView extends View {
     private int startX;
     private int startY;
 
-    //是否可拖拽
     private boolean mIsCanDrag = false;
-    //是否超过最大距离
     private boolean isOutOfRang = false;
-    //最终圆是否消失
+    //鏈€缁堝渾鏄惁娑堝け
     private boolean disappear = false;
 
-    //两圆相离最大距离
     private float maxDistance;
 
-    //贝塞尔曲线需要的点
     private PointF pointA;
     private PointF pointB;
     private PointF pointC;
     private PointF pointD;
-    //控制点坐标
     private PointF pointO;
 
-    //起始位置点
     private PointF pointStart;
-    //拖拽位置点
     private PointF pointEnd;
 
-    //根据滑动位置动态改变圆的半径
     private float currentRadiusStart;
     private float currentRadiusEnd;
 
     private Rect textRect = new Rect();
-    //消息数
     private int msgCount = 0;
 
     private OnDragBallListener onDragBallListener;
@@ -83,7 +74,7 @@ public class DragBallView extends View {
     }
 
     /**
-     * 初始化所有点
+     * 鍒濆鍖栨墍鏈夌偣
      */
     private void initPoint() {
         pointStart = new PointF(startX, startY);
@@ -100,8 +91,7 @@ public class DragBallView extends View {
     }
 
     /**
-     * 初始化画笔
-     */
+     * 鍒濆鍖栫敾绗?     */
     private void initPaint() {
 
         circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -114,8 +104,7 @@ public class DragBallView extends View {
     }
 
     /**
-     * 初始化文字画笔
-     */
+     * 鍒濆鍖栨枃瀛楃敾绗?     */
     private void initTextPaint() {
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setTextSize(sp2px(13));
@@ -167,9 +156,9 @@ public class DragBallView extends View {
     }
 
     /**
-     * 绘制文字
+     * 缁樺埗鏂囧瓧
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     private void drawText(Canvas canvas, int msgCount, PointF point) {
         textRect.left = (int) (point.x - radiusStart);
@@ -178,36 +167,32 @@ public class DragBallView extends View {
         textRect.bottom = (int) (point.y + radiusStart);
         Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
         int baseline = (textRect.bottom + textRect.top - fontMetrics.bottom - fontMetrics.top) / 2;
-        //文字绘制到整个布局的中心位置
-        canvas.drawText(msgCount > 99 ? "99+" : msgCount + "", textRect.centerX(), baseline, textPaint);
+        //鏂囧瓧缁樺埗鍒版暣涓竷灞€鐨勪腑蹇冧綅缃?        canvas.drawText(msgCount > 99 ? "99+" : msgCount + "", textRect.centerX(), baseline, textPaint);
     }
 
     /**
-     * 画起始小球
-     *
-     * @param canvas 画布
-     * @param pointF 点坐标
-     * @param radius 半径
+     * 鐢昏捣濮嬪皬鐞?     *
+     * @param canvas 鐢诲竷
+     * @param pointF 鐐瑰潗鏍?     * @param radius 鍗婂緞
      */
     private void drawStartBall(Canvas canvas, PointF pointF, float radius) {
         canvas.drawCircle(pointF.x, pointF.y, radius, circlePaint);
     }
 
     /**
-     * 画拖拽结束的小球
+     * 鐢绘嫋鎷界粨鏉熺殑灏忕悆
      *
-     * @param canvas 画布
-     * @param pointF 点坐标
-     * @param radius 半径
+     * @param canvas 鐢诲竷
+     * @param pointF 鐐瑰潗鏍?     * @param radius 鍗婂緞
      */
     private void drawEndBall(Canvas canvas, PointF pointF, float radius) {
         canvas.drawCircle(pointF.x, pointF.y, radius, circlePaint);
     }
 
     /**
-     * 画贝塞尔曲线
+     * 鐢昏礉濉炲皵鏇茬嚎
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     private void drawBezier(Canvas canvas) {
         path.reset();
@@ -238,7 +223,7 @@ public class DragBallView extends View {
 
                     currentX = event.getX();
                     currentY = event.getY();
-                    //设置拖拽圆的坐标
+                    //璁剧疆鎷栨嫿鍦嗙殑鍧愭爣
                     pointEnd.set(currentX, currentY);
 
                     if (!isOutOfRang) {
@@ -253,7 +238,7 @@ public class DragBallView extends View {
             case MotionEvent.ACTION_UP:
                 if (mIsCanDrag) {
                     if (isOutOfRang) {
-                        //消失动画
+                        //娑堝け鍔ㄧ敾
                         disappear = true;
                         if (onDragBallListener != null) {
                             onDragBallListener.onDisappear();
@@ -261,7 +246,7 @@ public class DragBallView extends View {
                         invalidate();
                     } else {
                         disappear = false;
-                        //回弹动画
+                        //鍥炲脊鍔ㄧ敾
                         final float a = (pointEnd.y - pointStart.y) / (pointEnd.x - pointStart.x);
                         ValueAnimator valueAnimator = ValueAnimator.ofFloat(pointEnd.x, pointStart.x);
                         valueAnimator.setDuration(500);
@@ -291,20 +276,17 @@ public class DragBallView extends View {
     }
 
     /**
-     * 设置当前计算的到的半径
-     */
+     * 璁剧疆褰撳墠璁＄畻鐨勫埌鐨勫崐寰?     */
     private void setCurrentRadius() {
-        //两个圆心之间的距离
         float distance = (float) Math.sqrt(Math.pow(pointStart.x - pointEnd.x, 2) + Math.pow(pointStart.y - pointEnd.y, 2));
 
-        //拖拽距离在设置的最大值范围内才绘制贝塞尔图形
+        //鎷栨嫿璺濈鍦ㄨ缃殑鏈€澶у€艰寖鍥村唴鎵嶇粯鍒惰礉濉炲皵鍥惧舰
         if (distance <= maxDistance) {
-            //比例系数  控制两圆半径缩放
+            //姣斾緥绯绘暟  鎺у埗涓ゅ渾鍗婂緞缂╂斁
             float percent = distance / maxDistance;
 
-            //之所以*0.6和0.2只为了放置拖拽过程圆变化的过大和过小这个系数是多次尝试的出的
-            //你也可以适当调整系数达到自己想要的效果
-            currentRadiusStart = (1 - percent * 0.6f) * radiusStart;
+            //涔嬫墍浠?0.6鍜?.2鍙负浜嗘斁缃嫋鎷借繃绋嬪渾鍙樺寲鐨勮繃澶у拰杩囧皬杩欎釜绯绘暟鏄娆″皾璇曠殑鍑虹殑
+            //浣犱篃鍙互閫傚綋璋冩暣绯绘暟杈惧埌鑷繁鎯宠鐨勬晥鏋?            currentRadiusStart = (1 - percent * 0.6f) * radiusStart;
             currentRadiusEnd = (1 + percent * 0.2f) * radiusEnd;
 
             isOutOfRang = false;
@@ -316,7 +298,7 @@ public class DragBallView extends View {
     }
 
     /**
-     * 判断是否可以拖拽
+     * 鍒ゆ柇鏄惁鍙互鎷栨嫿
      *
      * @param event event
      */
@@ -327,25 +309,23 @@ public class DragBallView extends View {
         rect.right = (int) (startX + radiusStart);
         rect.bottom = (int) (startY + radiusStart);
 
-        //触摸点是否在圆的坐标域内
+        //瑙︽懜鐐规槸鍚﹀湪鍦嗙殑鍧愭爣鍩熷唴
         mIsCanDrag = rect.contains((int) event.getX(), (int) event.getY());
     }
 
     /**
-     * 设置贝塞尔曲线的相关点坐标  计算方式参照结算图即可看明白
-     * （ps为了画个清楚这个图花了不少功夫哦）
-     */
+     * 璁剧疆璐濆灏旀洸绾跨殑鐩稿叧鐐瑰潗鏍? 璁＄畻鏂瑰紡鍙傜収缁撶畻鍥惧嵆鍙湅鏄庣櫧
+     * 锛坧s涓轰簡鐢讳釜娓呮杩欎釜鍥捐姳浜嗕笉灏戝姛澶摝锛?     */
     private void setABCDOPoint() {
-        //控制点坐标
-        pointO.set((pointStart.x + pointEnd.x) / 2.0f, (pointStart.y + pointEnd.y) / 2.0f);
+        //鎺у埗鐐瑰潗鏍?        pointO.set((pointStart.x + pointEnd.x) / 2.0f, (pointStart.y + pointEnd.y) / 2.0f);
 
         float x = pointEnd.x - pointStart.x;
         float y = pointEnd.y - pointStart.y;
 
-        //斜率 tanA=rate
+        //鏂滅巼 tanA=rate
         double rate;
         rate = x / y;
-        //角度  根据反正切函数算角度
+        //瑙掑害  鏍规嵁鍙嶆鍒囧嚱鏁扮畻瑙掑害
         float angle = (float) Math.atan(rate);
 
         pointA.x = (float) (pointStart.x + Math.cos(angle) * currentRadiusStart);
@@ -362,9 +342,8 @@ public class DragBallView extends View {
     }
 
     /**
-     * 设置消息数
-     *
-     * @param count 消息个数
+     * 璁剧疆娑堟伅鏁?     *
+     * @param count 娑堟伅涓暟
      */
     public void setMsgCount(int count) {
         msgCount = count;
@@ -388,7 +367,7 @@ public class DragBallView extends View {
     }
 
     /**
-     * 回调事件
+     * 鍥炶皟浜嬩欢
      */
     public interface OnDragBallListener {
         void onDisappear();
@@ -415,3 +394,4 @@ public class DragBallView extends View {
                 spVal, getResources().getDisplayMetrics());
     }
 }
+

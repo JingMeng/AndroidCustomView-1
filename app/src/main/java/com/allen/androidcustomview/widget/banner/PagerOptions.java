@@ -3,10 +3,10 @@ package com.allen.androidcustomview.widget.banner;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.util.TypedValue;
 
 import com.allen.androidcustomview.widget.banner.listener.OnPageChangeListener;
@@ -63,13 +63,12 @@ public class PagerOptions {
 
         public Builder(Context context) {
             mContext = context;
-            //设置默认指示器
-//            setIndicatorDrawable(R.drawable.indicator_normal_default, R.drawable.indicator_selected_default);
+            //璁剧疆榛樿鎸囩ず鍣?//            setIndicatorDrawable(R.drawable.indicator_normal_default, R.drawable.indicator_selected_default);
         }
 
 
         /**
-         * 设置每个 page 之间间隔
+         * 璁剧疆姣忎釜 page 涔嬮棿闂撮殧
          *
          * @param px px value
          * @return Builder
@@ -80,8 +79,7 @@ public class PagerOptions {
         }
 
         /**
-         * 左右两侧预显示宽度
-         *
+         * 宸﹀彸涓や晶棰勬樉绀哄搴?         *
          * @param px px value
          * @return Builder
          */
@@ -91,8 +89,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置指示器间距
-         *
+         * 璁剧疆鎸囩ず鍣ㄩ棿璺?         *
          * @param distance px value
          * @return Builder
          */
@@ -102,8 +99,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置指示器距离底部间距
-         *
+         * 璁剧疆鎸囩ず鍣ㄨ窛绂诲簳閮ㄩ棿璺?         *
          * @param marginBottom marginBottom
          * @return Builder
          */
@@ -113,8 +109,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置指示器位置
-         *
+         * 璁剧疆鎸囩ず鍣ㄤ綅缃?         *
          * @param align RelativeLayout.ALIGN_PARENT_LEFT || RelativeLayout.CENTER_IN_PARENT || RelativeLayout.ALIGN_PARENT_RIGHT
          * @return Builder
          */
@@ -124,7 +119,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置Indicator 是否可见
+         * 璁剧疆Indicator 鏄惁鍙
          *
          * @param visibility One of VISIBLE, INVISIBLE, GONE.
          * @return Builder
@@ -135,7 +130,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置轮播切换效果
+         * 璁剧疆杞挱鍒囨崲鏁堟灉
          *
          * @param transformer PageTransformer
          * @return Builder
@@ -146,10 +141,9 @@ public class PagerOptions {
         }
 
         /**
-         * 设置指示器
-         *
-         * @param unSelected 未选中
-         * @param selected   选中
+         * 璁剧疆鎸囩ず鍣?         *
+         * @param unSelected 鏈€変腑
+         * @param selected   閫変腑
          * @return Builder
          */
         public Builder setIndicatorDrawable(@DrawableRes int unSelected, @DrawableRes int selected) {
@@ -159,10 +153,9 @@ public class PagerOptions {
         }
 
         /**
-         * 设置指示器
-         *
-         * @param unSelected 未选中
-         * @param selected   选中
+         * 璁剧疆鎸囩ず鍣?         *
+         * @param unSelected 鏈€変腑
+         * @param selected   閫変腑
          * @return Builder
          */
         public Builder setIndicatorColor(@ColorInt int unSelected, @ColorInt int selected) {
@@ -181,8 +174,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置指示器
-         *
+         * 璁剧疆鎸囩ず鍣?         *
          * @param size px
          * @return Builder
          */
@@ -192,7 +184,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置可否循环
+         * 璁剧疆鍙惁寰幆
          *
          * @param loop loop
          * @return Builder
@@ -203,7 +195,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置切换时间
+         * 璁剧疆鍒囨崲鏃堕棿
          *
          * @param duration ms
          * @return Builder
@@ -214,7 +206,7 @@ public class PagerOptions {
         }
 
         /**
-         * 设置ViewPager的滚动速度
+         * 璁剧疆ViewPager鐨勬粴鍔ㄩ€熷害
          *
          * @param duration ms
          */
@@ -257,3 +249,4 @@ public class PagerOptions {
     }
 
 }
+

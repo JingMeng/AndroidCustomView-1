@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -15,7 +15,7 @@ import android.widget.Button;
 /**
  * Created by allen on 2017/5/23.
  * <p>
- * loading按钮
+ * loading鎸夐挳
  */
 
 public class LoadingButton extends Button {
@@ -71,8 +71,7 @@ public class LoadingButton extends Button {
     }
 
     /**
-     * 初始化文字画笔
-     */
+     * 鍒濆鍖栨枃瀛楃敾绗?     */
     private void initTextPaint() {
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setTextSize(sp2px(16));
@@ -147,16 +146,15 @@ public class LoadingButton extends Button {
 
 
     /**
-     * 绘制文字
+     * 缁樺埗鏂囧瓧
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     private void drawText(Canvas canvas, String textString) {
         textRect.set(0, 0, mWidth, mHeight);
         Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
         int baseline = (int) ((textRect.bottom + textRect.top - fontMetrics.bottom - fontMetrics.top) / 2);
-        //文字绘制到整个布局的中心位置
-        canvas.drawText(textString, textRect.centerX(), baseline, textPaint);
+        //鏂囧瓧缁樺埗鍒版暣涓竷灞€鐨勪腑蹇冧綅缃?        canvas.drawText(textString, textRect.centerX(), baseline, textPaint);
     }
 
 
@@ -179,7 +177,7 @@ public class LoadingButton extends Button {
     }
 
     /**
-     * 统一处理paint
+     * 缁熶竴澶勭悊paint
      *
      * @param strokeWidth
      * @param style
@@ -218,3 +216,4 @@ public class LoadingButton extends Button {
     }
 
 }
+

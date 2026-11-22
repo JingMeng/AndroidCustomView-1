@@ -1,6 +1,6 @@
 package com.allen.androidcustomview.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -21,22 +21,21 @@ public class PayPsdViewActivity extends AppCompatActivity {
 
             @Override
             public void onDifference(String oldPsd, String newPsd) {
-                // TODO: 2018/1/22  和上次输入的密码不一致  做相应的业务逻辑处理
-                Toast.makeText(PayPsdViewActivity.this, "两次密码输入不同" + oldPsd + "!=" + newPsd, Toast.LENGTH_SHORT).show();
+                // TODO: 2018/1/22  鍜屼笂娆¤緭鍏ョ殑瀵嗙爜涓嶄竴鑷? 鍋氱浉搴旂殑涓氬姟閫昏緫澶勭悊
+                Toast.makeText(PayPsdViewActivity.this, "涓ゆ瀵嗙爜杈撳叆涓嶅悓" + oldPsd + "!=" + newPsd, Toast.LENGTH_SHORT).show();
                 passwordInputView.cleanPsd();
             }
 
             @Override
             public void onEqual(String psd) {
-                // TODO: 2017/5/7 两次输入密码相同，那就去进行支付楼
-                Toast.makeText(PayPsdViewActivity.this, "密码相同" + psd, Toast.LENGTH_SHORT).show();
+                // TODO: 2017/5/7 涓ゆ杈撳叆瀵嗙爜鐩稿悓锛岄偅灏卞幓杩涜鏀粯妤?                Toast.makeText(PayPsdViewActivity.this, "瀵嗙爜鐩稿悓" + psd, Toast.LENGTH_SHORT).show();
                 passwordInputView.setComparePassword("");
                 passwordInputView.cleanPsd();
             }
 
             @Override
             public void inputFinished(String inputPsd) {
-                // TODO: 2018/1/3 输完逻辑
+                // TODO: 2018/1/3 杈撳畬閫昏緫
                 Toast.makeText(PayPsdViewActivity.this, "输入完毕：" + inputPsd, Toast.LENGTH_SHORT).show();
                 passwordInputView.setComparePassword(inputPsd);
             }
@@ -44,3 +43,4 @@ public class PayPsdViewActivity extends AppCompatActivity {
 
     }
 }
+

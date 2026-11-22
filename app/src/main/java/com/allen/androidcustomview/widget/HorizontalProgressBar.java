@@ -9,8 +9,8 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -21,7 +21,7 @@ import java.text.DecimalFormat;
 /**
  * Created by Allen on 2017/5/14.
  * <p>
- * 自定义水平进度条
+ * 鑷畾涔夋按骞宠繘搴︽潯
  */
 
 public class HorizontalProgressBar extends View {
@@ -36,95 +36,85 @@ public class HorizontalProgressBar extends View {
     private int mHeight;
     private int mViewHeight;
     /**
-     * 进度
+     * 杩涘害
      */
     private float mProgress;
 
     /**
-     * 当前进度
+     * 褰撳墠杩涘害
      */
     private float currentProgress;
 
     /**
-     * 进度动画
+     * 杩涘害鍔ㄧ敾
      */
     private ValueAnimator progressAnimator;
 
     /**
-     * 动画执行时间
+     * 鍔ㄧ敾鎵ц鏃堕棿
      */
     private int duration = 1000;
     /**
-     * 动画延时启动时间
+     * 鍔ㄧ敾寤舵椂鍚姩鏃堕棿
      */
     private int startDelay = 500;
 
     /**
-     * 进度条画笔的宽度
+     * 杩涘害鏉＄敾绗旂殑瀹藉害
      */
     private int progressPaintWidth;
 
     /**
-     * 百分比提示框画笔的宽度
-     */
+     * 鐧惧垎姣旀彁绀烘鐢荤瑪鐨勫搴?     */
     private int tipPaintWidth;
 
     /**
-     * 百分比提示框的高度
-     */
+     * 鐧惧垎姣旀彁绀烘鐨勯珮搴?     */
     private int tipHeight;
 
     /**
-     * 百分比提示框的宽度
-     */
+     * 鐧惧垎姣旀彁绀烘鐨勫搴?     */
     private int tipWidth;
 
     /**
-     * 画三角形的path
+     * 鐢讳笁瑙掑舰鐨刾ath
      */
     private Path path = new Path();
     /**
-     * 三角形的高
-     */
+     * 涓夎褰㈢殑楂?     */
     private int triangleHeight;
     /**
-     * 进度条距离提示框的高度
-     */
+     * 杩涘害鏉¤窛绂绘彁绀烘鐨勯珮搴?     */
     private int progressMarginTop;
 
     /**
-     * 进度移动的距离
-     */
+     * 杩涘害绉诲姩鐨勮窛绂?     */
     private float moveDis;
 
     private Rect textRect = new Rect();
     private String textString = "0";
     /**
-     * 百分比文字字体大小
-     */
+     * 鐧惧垎姣旀枃瀛楀瓧浣撳ぇ灏?     */
     private int textPaintSize;
 
     /**
-     * 进度条背景颜色
-     */
+     * 杩涘害鏉¤儗鏅鑹?     */
     private int bgColor = 0xFFe1e5e8;
     /**
-     * 进度条颜色
-     */
+     * 杩涘害鏉￠鑹?     */
     private int progressColor = 0xFFf66b12;
 
     /**
-     * 绘制提示框的矩形
+     * 缁樺埗鎻愮ず妗嗙殑鐭╁舰
      */
     private RectF rectF = new RectF();
 
     /**
-     * 圆角矩形的圆角半径
-     */
+     * 鍦嗚鐭╁舰鐨勫渾瑙掑崐寰?     */
     private int roundRectRadius;
 
     /**
-     * 进度监听回调
+     * 杩涘害鐩戝惉鍥炶皟
      */
     private ProgressListener progressListener;
 
@@ -139,7 +129,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 初始化画笔宽度及view大小
+     * 鍒濆鍖栫敾绗斿搴﹀強view澶у皬
      */
     private void init() {
         progressPaintWidth = dp2px(4);
@@ -151,13 +141,11 @@ public class HorizontalProgressBar extends View {
         textPaintSize = sp2px(10);
         progressMarginTop = dp2px(8);
 
-        //view真实的高度
-        mViewHeight = tipHeight + tipPaintWidth + triangleHeight + progressPaintWidth + progressMarginTop;
+        //view鐪熷疄鐨勯珮搴?        mViewHeight = tipHeight + tipPaintWidth + triangleHeight + progressPaintWidth + progressMarginTop;
     }
 
     /**
-     * 初始化画笔
-     */
+     * 鍒濆鍖栫敾绗?     */
     private void initPaint() {
         bgPaint = getPaint(progressPaintWidth, bgColor, Paint.Style.STROKE);
         progressPaint = getPaint(progressPaintWidth, progressColor, Paint.Style.STROKE);
@@ -167,8 +155,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 初始化文字画笔
-     */
+     * 鍒濆鍖栨枃瀛楃敾绗?     */
     private void initTextPaint() {
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setTextSize(textPaintSize);
@@ -178,7 +165,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 统一处理paint
+     * 缁熶竴澶勭悊paint
      *
      * @param strokeWidth
      * @param color
@@ -207,7 +194,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 测量宽度
+     * 娴嬮噺瀹藉害
      *
      * @param mode
      * @param width
@@ -226,7 +213,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 测量高度
+     * 娴嬮噺楂樺害
      *
      * @param mode
      * @param height
@@ -267,7 +254,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 绘制进度上边提示百分比的view
+     * 缁樺埗杩涘害涓婅竟鎻愮ず鐧惧垎姣旂殑view
      *
      * @param canvas
      */
@@ -278,7 +265,7 @@ public class HorizontalProgressBar extends View {
 
 
     /**
-     * 绘制圆角矩形
+     * 缁樺埗鍦嗚鐭╁舰
      *
      * @param canvas
      */
@@ -288,8 +275,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 绘制三角形
-     *
+     * 缁樺埗涓夎褰?     *
      * @param canvas
      */
     private void drawTriangle(Canvas canvas) {
@@ -302,9 +288,9 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 绘制文字
+     * 缁樺埗鏂囧瓧
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     private void drawText(Canvas canvas, String textString) {
         textRect.left = (int) moveDis;
@@ -313,13 +299,11 @@ public class HorizontalProgressBar extends View {
         textRect.bottom = tipHeight;
         Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
         int baseline = (textRect.bottom + textRect.top - fontMetrics.bottom - fontMetrics.top) / 2;
-        //文字绘制到整个布局的中心位置
-        canvas.drawText(textString + "%", textRect.centerX(), baseline, textPaint);
+        //鏂囧瓧缁樺埗鍒版暣涓竷灞€鐨勪腑蹇冧綅缃?        canvas.drawText(textString + "%", textRect.centerX(), baseline, textPaint);
     }
 
     /**
-     * 进度移动动画  通过插值的方式改变移动的距离
-     */
+     * 杩涘害绉诲姩鍔ㄧ敾  閫氳繃鎻掑€肩殑鏂瑰紡鏀瑰彉绉诲姩鐨勮窛绂?     */
     private void initAnimation() {
         progressAnimator = ValueAnimator.ofFloat(0, mProgress);
         progressAnimator.setDuration(duration);
@@ -329,17 +313,16 @@ public class HorizontalProgressBar extends View {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float value = (float) valueAnimator.getAnimatedValue();
-                //进度数值只显示整数，我们自己的需求，可以忽略
+                //杩涘害鏁板€煎彧鏄剧ず鏁存暟锛屾垜浠嚜宸辩殑闇€姹傦紝鍙互蹇界暐
                 textString = formatNum(format2Int(value));
-                //把当前百分比进度转化成view宽度对应的比例
-                currentProgress = value * mWidth / 100;
-                //进度回调方法
+                //鎶婂綋鍓嶇櫨鍒嗘瘮杩涘害杞寲鎴恦iew瀹藉害瀵瑰簲鐨勬瘮渚?                currentProgress = value * mWidth / 100;
+                //杩涘害鍥炶皟鏂规硶
                 if (progressListener != null) {
                     progressListener.currentProgressListener(value);
                 }
-                //移动百分比提示框，只有当前进度到提示框中间位置之后开始移动，
-                //当进度框移动到最右边的时候停止移动，但是进度条还可以继续移动
-                //moveDis是tip框移动的距离
+                //绉诲姩鐧惧垎姣旀彁绀烘锛屽彧鏈夊綋鍓嶈繘搴﹀埌鎻愮ず妗嗕腑闂翠綅缃箣鍚庡紑濮嬬Щ鍔紝
+                //褰撹繘搴︽绉诲姩鍒版渶鍙宠竟鐨勬椂鍊欏仠姝㈢Щ鍔紝浣嗘槸杩涘害鏉¤繕鍙互缁х画绉诲姩
+                //moveDis鏄痶ip妗嗙Щ鍔ㄧ殑璺濈
                 if (currentProgress >= (tipWidth / 2) &&
                         currentProgress <= (mWidth - tipWidth / 2)) {
                     moveDis = currentProgress - tipWidth / 2;
@@ -352,7 +335,7 @@ public class HorizontalProgressBar extends View {
 
 
     /**
-     * 设置进度条带动画效果
+     * 璁剧疆杩涘害鏉″甫鍔ㄧ敾鏁堟灉
      *
      * @param progress
      * @return
@@ -364,7 +347,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 实时显示进度
+     * 瀹炴椂鏄剧ず杩涘害
      *
      * @param progress
      * @return
@@ -378,8 +361,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 开启动画
-     */
+     * 寮€鍚姩鐢?     */
     public void startProgressAnimation() {
         if (progressAnimator != null &&
                 !progressAnimator.isRunning() &&
@@ -388,7 +370,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 暂停动画
+     * 鏆傚仠鍔ㄧ敾
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void pauseProgressAnimation() {
@@ -398,7 +380,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 恢复动画
+     * 鎭㈠鍔ㄧ敾
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void resumeProgressAnimation() {
@@ -407,7 +389,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 停止动画
+     * 鍋滄鍔ㄧ敾
      */
     public void stopProgressAnimation() {
         if (progressAnimator != null) {
@@ -416,14 +398,14 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 回调接口
+     * 鍥炶皟鎺ュ彛
      */
     public interface ProgressListener {
         void currentProgressListener(float currentProgress);
     }
 
     /**
-     * 回调监听事件
+     * 鍥炶皟鐩戝惉浜嬩欢
      *
      * @param listener
      * @return
@@ -434,7 +416,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 格式化数字(保留两位小数)
+     * 鏍煎紡鍖栨暟瀛?淇濈暀涓や綅灏忔暟)
      *
      * @param money
      * @return
@@ -445,7 +427,7 @@ public class HorizontalProgressBar extends View {
     }
 
     /**
-     * 格式化数字(保留一位小数)
+     * 鏍煎紡鍖栨暟瀛?淇濈暀涓€浣嶅皬鏁?
      *
      * @param money
      * @return
@@ -481,3 +463,4 @@ public class HorizontalProgressBar extends View {
         return (int) i;
     }
 }
+

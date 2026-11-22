@@ -8,7 +8,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 
 import android.view.View;
@@ -17,31 +17,28 @@ import android.view.animation.DecelerateInterpolator;
 
 /**
  * Created by Allen on 2017/4/10.
- * 雷达水波扩散动画
+ * 闆疯揪姘存尝鎵╂暎鍔ㄧ敾
  */
 
 public class RadarWaveView extends View {
 
     /**
-     * 圆形背景画笔
+     * 鍦嗗舰鑳屾櫙鐢荤瑪
      */
     private Paint mBgPaint;
     /**
-     * 圆形背景颜色
+     * 鍦嗗舰鑳屾櫙棰滆壊
      */
     private int mBgColor = 0x66FFFFFF;
     /**
-     * 圆形背景的半径
-     */
+     * 鍦嗗舰鑳屾櫙鐨勫崐寰?     */
     private float mBgRadius;
     /**
-     * 圆形背景最大半径比例
-     */
+     * 鍦嗗舰鑳屾櫙鏈€澶у崐寰勬瘮渚?     */
     private float mMaxRadiusRate = 0.85f;
 
     /**
-     * 扩散水波的颜色
-     */
+     * 鎵╂暎姘存尝鐨勯鑹?     */
     private int mCircleEdgeColor_green = 0x2fffd1;
     private int mCircleEdgeColor_red = 0xFF4081;
     private int mCircleEdgeColor_yellow = 0xfeff38;
@@ -49,30 +46,28 @@ public class RadarWaveView extends View {
     private int[] colors = {mCircleEdgeColor_green, mCircleEdgeColor_yellow, mCircleEdgeColor_red};
 
     /**
-     * 阴影颜色
+     * 闃村奖棰滆壊
      */
     private int mCircleShadowColor = 0x3a0909;
     /**
-     * 扩散水波的画笔
-     */
+     * 鎵╂暎姘存尝鐨勭敾绗?     */
     private Paint mCircleWavePaint;
     /**
-     * 扩散水波默认半径
+     * 鎵╂暎姘存尝榛樿鍗婂緞
      */
     private float mDefaultWaveRadius = 0;
     /**
-     * 当前扩散水波的半径
-     */
+     * 褰撳墠鎵╂暎姘存尝鐨勫崐寰?     */
     private float mCurrentWaveRadius;
 
 
     /**
-     * 扩散水波执行时间
+     * 鎵╂暎姘存尝鎵ц鏃堕棿
      */
     private long mDuration = 2000;
 
     /**
-     * 水波动画
+     * 姘存尝鍔ㄧ敾
      */
     private ValueAnimator mAnimator_green;
     private ValueAnimator mAnimator_yellow;
@@ -80,8 +75,7 @@ public class RadarWaveView extends View {
 
     private ValueAnimator[] valueAnimators = new ValueAnimator[3];
     /**
-     * 动画集
-     */
+     * 鍔ㄧ敾闆?     */
     private AnimatorSet mAnimatorSet;
 
 
@@ -113,8 +107,7 @@ public class RadarWaveView extends View {
 
 
     /**
-     * 初始化背景画笔
-     */
+     * 鍒濆鍖栬儗鏅敾绗?     */
     private void initBgPaint() {
         mBgPaint = new Paint();
         mBgPaint.setStrokeWidth(5);
@@ -124,7 +117,7 @@ public class RadarWaveView extends View {
     }
 
     /**
-     * 初始化水波圆圈的画笔
+     * 鍒濆鍖栨按娉㈠渾鍦堢殑鐢荤瑪
      */
     private void initCirclePaint() {
         mCircleWavePaint = new Paint();
@@ -133,8 +126,7 @@ public class RadarWaveView extends View {
         mCircleWavePaint.setAntiAlias(true);
         mCircleWavePaint.setColor(mCircleEdgeColor_green);
 
-        //设置圆环周围阴影效果  加上阴影必须取消硬件加速  没了硬件加速刷新UI导致卡卡的感觉 官方推荐阴影适合加在静态的图像上
-//        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        //璁剧疆鍦嗙幆鍛ㄥ洿闃村奖鏁堟灉  鍔犱笂闃村奖蹇呴』鍙栨秷纭欢鍔犻€? 娌′簡纭欢鍔犻€熷埛鏂癠I瀵艰嚧鍗″崱鐨勬劅瑙?瀹樻柟鎺ㄨ崘闃村奖閫傚悎鍔犲湪闈欐€佺殑鍥惧儚涓?//        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 //        mCircleWavePaint.setShadowLayer(30, 0, 0, mCircleShadowColor);
     }
 
@@ -167,8 +159,7 @@ public class RadarWaveView extends View {
 
 
     /**
-     * 初始化动画
-     */
+     * 鍒濆鍖栧姩鐢?     */
     private void initAnimation_green() {
         mAnimator_green = ValueAnimator.ofFloat(0, 1);
         mAnimator_green.setDuration(mDuration);
@@ -195,13 +186,12 @@ public class RadarWaveView extends View {
     }
 
     /**
-     * 初始化动画
-     */
+     * 鍒濆鍖栧姩鐢?     */
     private void initAnimation_yellow() {
         mAnimator_yellow = ValueAnimator.ofFloat(0, 1);
         mAnimator_yellow.setDuration(mDuration);
 
-        //无线循环
+        //鏃犵嚎寰幆
 //        mAnimator_yellow.setRepeatCount(3);
 
         mAnimator_yellow.setInterpolator(new DecelerateInterpolator());
@@ -226,13 +216,12 @@ public class RadarWaveView extends View {
     }
 
     /**
-     * 初始化动画
-     */
+     * 鍒濆鍖栧姩鐢?     */
     private void initAnimation_red() {
         mAnimator_red = ValueAnimator.ofFloat(0, 1);
         mAnimator_red.setDuration(mDuration);
 
-        //无线循环
+        //鏃犵嚎寰幆
 //        mAnimator_red.setRepeatCount(3);
 
         mAnimator_red.setInterpolator(new DecelerateInterpolator());
@@ -259,7 +248,7 @@ public class RadarWaveView extends View {
 
 
     /**
-     * 初始化动画集
+     * 鍒濆鍖栧姩鐢婚泦
      */
     private void initAnimatorSet() {
         mAnimatorSet = new AnimatorSet();
@@ -303,42 +292,41 @@ public class RadarWaveView extends View {
     }
 
     /**
-     * 画水波圆圈
-     *
-     * @param canvas 画布
+     * 鐢绘按娉㈠渾鍦?     *
+     * @param canvas 鐢诲竷
      */
     private void drawWaveCircle(Canvas canvas) {
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, mCurrentWaveRadius, mCircleWavePaint);
     }
 
     /**
-     * 画圆形的背景
+     * 鐢诲渾褰㈢殑鑳屾櫙
      *
-     * @param canvas 画笔
+     * @param canvas 鐢荤瑪
      */
     private void drawBg(Canvas canvas) {
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, mBgRadius, mBgPaint);
     }
 
     /**
-     * 开启动画
-     */
+     * 寮€鍚姩鐢?     */
     public void start() {
         mAnimatorSet.start();
     }
 
     /**
-     * 暂停动画
+     * 鏆傚仠鍔ㄧ敾
      */
     public void pause() {
         mAnimatorSet.pause();
     }
 
     /**
-     * 停止动画
+     * 鍋滄鍔ㄧ敾
      */
     public void stop() {
         mAnimatorSet.end();
     }
 
 }
+

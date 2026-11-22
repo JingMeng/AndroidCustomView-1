@@ -4,7 +4,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -13,8 +13,7 @@ import android.view.animation.LinearInterpolator;
 /**
  * Created by Allen on 2018/1/31.
  * <p>
- * 线性加载动画
- */
+ * 绾挎€у姞杞藉姩鐢? */
 
 public class LoadingLineView extends View {
 
@@ -22,64 +21,62 @@ public class LoadingLineView extends View {
     private int mHeight;
 
     /**
-     * 动画起点x坐标
+     * 鍔ㄧ敾璧风偣x鍧愭爣
      */
     private int centerX;
     /**
-     * 动画起点y坐标
+     * 鍔ㄧ敾璧风偣y鍧愭爣
      */
     private int centerY;
 
     /**
-     * 偏移距离
+     * 鍋忕Щ璺濈
      */
     private float dis;
 
     /**
-     * view真实高度
+     * view鐪熷疄楂樺害
      */
     private int mViewHeight;
 
     /**
-     * 背景色画笔
-     */
+     * 鑳屾櫙鑹茬敾绗?     */
     private Paint bgPaint;
     /**
-     * loading画笔
+     * loading鐢荤瑪
      */
     private Paint loadingPaint;
 
     /**
-     * 画笔宽度（等于vie高度）
-     */
+     * 鐢荤瑪瀹藉害锛堢瓑浜巚ie楂樺害锛?     */
     private int paintWidth;
 
     /**
-     * 底色
+     * 搴曡壊
      */
     private int bgColor = 0xFFe1e5e8;
 
     /**
-     * loading颜色
+     * loading棰滆壊
      */
     private int loadingColor = 0xFFf66b12;
 
 
     /**
-     * 动画
+     * 鍔ㄧ敾
      */
     private ValueAnimator loadingAnimator;
     /**
-     * 动画执行时间
+     * 鍔ㄧ敾鎵ц鏃堕棿
      */
     private int duration = 800;
     /**
-     * 动画延时启动时间
+     * 鍔ㄧ敾寤舵椂鍚姩鏃堕棿
      */
     private int startDelay = 0;
 
     /**
-     * 是否停止动画（恢复初始状态）
+     * 鏄惁鍋滄鍔ㄧ敾锛堟仮澶嶅垵濮嬬姸鎬侊級
      */
     private boolean isStopAnimation = false;
 
@@ -98,7 +95,7 @@ public class LoadingLineView extends View {
     }
 
     /**
-     * 想实现颜色等参数可配置，在这里实现配置即可,笔者就不多写了
+     * 鎯冲疄鐜伴鑹茬瓑鍙傛暟鍙厤缃紝鍦ㄨ繖閲屽疄鐜伴厤缃嵆鍙?绗旇€呭氨涓嶅鍐欎簡
      *
      * @param attrs attrs
      */
@@ -115,11 +112,11 @@ public class LoadingLineView extends View {
 
 
     /**
-     * 统一处理paint
+     * 缁熶竴澶勭悊paint
      *
-     * @param strokeWidth 画笔宽度
-     * @param color       颜色
-     * @param style       风格
+     * @param strokeWidth 鐢荤瑪瀹藉害
+     * @param color       棰滆壊
+     * @param style       椋庢牸
      * @return paint
      */
     private Paint getPaint(int strokeWidth, int color, Paint.Style style) {
@@ -158,7 +155,7 @@ public class LoadingLineView extends View {
     }
 
     /**
-     * 测量宽度
+     * 娴嬮噺瀹藉害
      *
      * @param mode
      * @param width
@@ -177,7 +174,7 @@ public class LoadingLineView extends View {
     }
 
     /**
-     * 测量高度
+     * 娴嬮噺楂樺害
      *
      * @param mode
      * @param height
@@ -200,17 +197,16 @@ public class LoadingLineView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         /**
-         * 画底色
-         */
+         * 鐢诲簳鑹?         */
         canvas.drawLine(0, centerY, mWidth, centerY, bgPaint);
 
         if (!isStopAnimation) {
             /**
-             * loading向左扩散
+             * loading鍚戝乏鎵╂暎
              */
             canvas.drawLine(centerX, centerY, centerX - dis, centerY, loadingPaint);
             /**
-             * loading向右扩散
+             * loading鍚戝彸鎵╂暎
              */
             canvas.drawLine(centerX, centerY, centerX + dis, centerY, loadingPaint);
         }
@@ -218,8 +214,7 @@ public class LoadingLineView extends View {
     }
 
     /**
-     * 初始化动画
-     */
+     * 鍒濆鍖栧姩鐢?     */
     private void initLoadingAnimation() {
         final float loadingMoveDistance = mWidth / 2;
         loadingAnimator = ValueAnimator.ofFloat(0, loadingMoveDistance);
@@ -243,8 +238,7 @@ public class LoadingLineView extends View {
     }
 
     /**
-     * 开启动画
-     */
+     * 寮€鍚姩鐢?     */
     public void startLoading() {
         if (loadingAnimator != null) {
             loadingAnimator.start();
@@ -253,7 +247,7 @@ public class LoadingLineView extends View {
     }
 
     /**
-     * 结束动画
+     * 缁撴潫鍔ㄧ敾
      */
     public void stopLoading() {
         if (loadingAnimator != null) {
@@ -274,3 +268,4 @@ public class LoadingLineView extends View {
                 dpVal, getResources().getDisplayMetrics());
     }
 }
+

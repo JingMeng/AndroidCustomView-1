@@ -2,7 +2,7 @@ package com.allen.androidcustomview.activity;
 
 import android.graphics.PointF;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -129,7 +129,7 @@ public class BubbleViewActivity extends AppCompatActivity {
     }
 
     /**
-     * 获取状态栏高度
+     * 鑾峰彇鐘舵€佹爮楂樺害
      *
      * @return
      */
@@ -155,3 +155,4 @@ public class BubbleViewActivity extends AppCompatActivity {
         Log.d(TAG, "onPause: ");
     }
 }
+

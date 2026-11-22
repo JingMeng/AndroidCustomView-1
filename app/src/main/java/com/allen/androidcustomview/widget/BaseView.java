@@ -2,7 +2,7 @@ package com.allen.androidcustomview.widget;
 
 import android.content.Context;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -40,7 +40,7 @@ public class BaseView extends View {
     }
 
     /**
-     * 测量宽度
+     * 娴嬮噺瀹藉害
      *
      * @param mode
      * @param width
@@ -59,7 +59,7 @@ public class BaseView extends View {
     }
 
     /**
-     * 测量高度
+     * 娴嬮噺楂樺害
      *
      * @param mode
      * @param height
@@ -79,7 +79,7 @@ public class BaseView extends View {
     }
 
     /**
-     * 统一处理paint
+     * 缁熶竴澶勭悊paint
      * @param strokeWidth
      * @param color
      * @param style
@@ -119,3 +119,4 @@ public class BaseView extends View {
     }
 
 }
+

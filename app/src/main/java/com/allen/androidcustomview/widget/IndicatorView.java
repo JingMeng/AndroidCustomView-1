@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -14,8 +14,7 @@ import android.view.View;
  *      @author : xiaoyao
  *      e-mail  : xiaoyao@51vest.com
  *      date    : 2018/02/27
- *      desc    : 首页banner指示器
- *      version : 1.0
+ *      desc    : 棣栭〉banner鎸囩ず鍣? *      version : 1.0
  * </pre>
  */
 
@@ -27,47 +26,45 @@ public class IndicatorView extends View {
     private float startX;
 
     /**
-     * 动画起点x坐标
+     * 鍔ㄧ敾璧风偣x鍧愭爣
      */
     private int centerX;
 
     /**
-     * 动画起点y坐标
+     * 鍔ㄧ敾璧风偣y鍧愭爣
      */
     private int centerY;
 
     /**
-     * view真实高度
+     * view鐪熷疄楂樺害
      */
     private int mViewHeight;
 
     private int mViewWidth;
 
     /**
-     * 画笔宽度（等于vie高度）
-     */
+     * 鐢荤瑪瀹藉害锛堢瓑浜巚ie楂樺害锛?     */
     private int paintWidth;
 
     private int radius;
     private int R;
 
     /**
-     * 圆的颜色
+     * 鍦嗙殑棰滆壊
      */
     private int circleBgColor = 0xFFCED3D6;
 
     /**
-     * 当前指示器的颜色
+     * 褰撳墠鎸囩ず鍣ㄧ殑棰滆壊
      */
     private int currentColor = 0xFFA0946C;
 
 
     /**
-     * 圆画笔
-     */
+     * 鍦嗙敾绗?     */
     private Paint circlePaint;
     /**
-     * 当前指示器的画笔
+     * 褰撳墠鎸囩ず鍣ㄧ殑鐢荤瑪
      */
     private Paint indicatorPaint;
 
@@ -75,7 +72,7 @@ public class IndicatorView extends View {
     private int pointNum = 0;
     private int currentIndex = 0;
     /**
-     * 圆之间的间距
+     * 鍦嗕箣闂寸殑闂磋窛
      */
     private int dis;
 
@@ -107,11 +104,11 @@ public class IndicatorView extends View {
 
 
     /**
-     * 统一处理paint
+     * 缁熶竴澶勭悊paint
      *
-     * @param strokeWidth 画笔宽度
-     * @param color       颜色
-     * @param style       风格
+     * @param strokeWidth 鐢荤瑪瀹藉害
+     * @param color       棰滆壊
+     * @param style       椋庢牸
      * @return paint
      */
     private Paint getPaint(int strokeWidth, int color, Paint.Style style) {
@@ -152,7 +149,7 @@ public class IndicatorView extends View {
     }
 
     /**
-     * 测量宽度
+     * 娴嬮噺瀹藉害
      *
      * @param mode
      * @param width
@@ -171,7 +168,7 @@ public class IndicatorView extends View {
     }
 
     /**
-     * 测量高度
+     * 娴嬮噺楂樺害
      *
      * @param mode
      * @param height
@@ -238,3 +235,4 @@ public class IndicatorView extends View {
                 dpVal, getResources().getDisplayMetrics());
     }
 }
+

@@ -1,6 +1,6 @@
 package com.allen.androidcustomview.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.allen.androidcustomview.R;
@@ -36,3 +36,4 @@ public class RadarActivity extends AppCompatActivity {
         radarView.stop();
     }
 }
+

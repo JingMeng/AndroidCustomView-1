@@ -1,6 +1,6 @@
 package com.allen.androidcustomview.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -23,7 +23,7 @@ public class AnimationViewActivity extends AppCompatActivity {
         loadingButton = (LoadingButton) findViewById(R.id.loading_btn);
 
         fadeInTextView
-                .setTextString("自定义view实现字符串逐字显示，后边的文字是为了测试换行是否正常显示！")
+                .setTextString("鑷畾涔塿iew瀹炵幇瀛楃涓查€愬瓧鏄剧ず锛屽悗杈圭殑鏂囧瓧鏄负浜嗘祴璇曟崲琛屾槸鍚︽甯告樉绀猴紒")
                 .setTextAnimationListener(new FadeInTextView.TextAnimationListener() {
                     @Override
                     public void animationFinish() {
@@ -40,3 +40,4 @@ public class AnimationViewActivity extends AppCompatActivity {
         });
     }
 }
+

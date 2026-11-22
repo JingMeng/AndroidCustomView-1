@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -14,7 +14,7 @@ import android.view.View;
  *      @author : Allen
  *      e-mail  : lygttpod@163.com
  *      date    : 2018/04/15
- *      desc    : 悬停吸顶效果的ItemDecoration
+ *      desc    : 鎮仠鍚搁《鏁堟灉鐨処temDecoration
  *      version : 1.0
  * </pre>
  */
@@ -25,45 +25,37 @@ public class HoverItemDecoration extends RecyclerView.ItemDecoration {
     private int width;
 
     /**
-     * 分组item的高度
-     */
+     * 鍒嗙粍item鐨勯珮搴?     */
     private int itemHeight;
     /**
-     * 分割线的高度
+     * 鍒嗗壊绾跨殑楂樺害
      */
     private int itemDivideHeight;
     /**
-     * 分组text距离左边的距离
-     */
+     * 鍒嗙粍text璺濈宸﹁竟鐨勮窛绂?     */
     private int itemTextPaddingLeft;
 
     /**
-     * 分组item的画笔
-     */
+     * 鍒嗙粍item鐨勭敾绗?     */
     private Paint itemPaint;
     /**
-     * 分组item的颜色
-     */
+     * 鍒嗙粍item鐨勯鑹?     */
     private int itemHoverPaintColor=0xFFf4f4f4;
     /**
-     * 分组文字的颜色
-     */
+     * 鍒嗙粍鏂囧瓧鐨勯鑹?     */
     private int textPaintColor=0xFF999999;
 
     /**
-     * 悬停item的画笔
-     */
+     * 鎮仠item鐨勭敾绗?     */
     private Paint itemHoverPaint;
     /**
-     * 文字的画笔
-     */
+     * 鏂囧瓧鐨勭敾绗?     */
     private Paint textPaint;
     /**
-     * 绘制文字的矩形边框
-     */
+     * 缁樺埗鏂囧瓧鐨勭煩褰㈣竟妗?     */
     private Rect textRect = new Rect();
     /**
-     * 分组字母的回调（一般是取的分组的大写字母）
+     * 鍒嗙粍瀛楁瘝鐨勫洖璋冿紙涓€鑸槸鍙栫殑鍒嗙粍鐨勫ぇ鍐欏瓧姣嶏級
      */
     private BindItemTextCallback bindItemTextCallback;
 
@@ -97,17 +89,15 @@ public class HoverItemDecoration extends RecyclerView.ItemDecoration {
         int count = parent.getChildCount();
         for (int i = 0; i < count; i++) {
             View view = parent.getChildAt(i);
-            //分组item的顶部和底部
+            //鍒嗙粍item鐨勯《閮ㄥ拰搴曢儴
             int itemTop = view.getTop() - itemHeight;
             int itemBottom = view.getTop();
 
-            //可见item在adapter中真实的位置
+            //鍙item鍦╝dapter涓湡瀹炵殑浣嶇疆
             int position = parent.getChildAdapterPosition(view);
 
-            //获取回调的分组文字（一般是字母）
             String text = bindItemTextCallback.getItemText(position);
 
-            //如果是一组中第一个的话绘制出分组的item和文字，否则绘制分割线
             if (isFirstInGroup(position)) {
                 c.drawRect(0, itemTop, width, itemBottom, itemPaint);
                 drawText(c, itemTop, itemBottom, text);
@@ -121,19 +111,17 @@ public class HoverItemDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDrawOver(c, parent, state);
-        //绘制悬停的view
+        //缁樺埗鎮仠鐨剉iew
 
         int count = parent.getChildCount();
 
         if (count > 0) {
-            //悬停只是第一个位置悬停，所以只取第一个view进行设置
+            //鎮仠鍙槸绗竴涓綅缃偓鍋滐紝鎵€浠ュ彧鍙栫涓€涓獀iew杩涜璁剧疆
             View firstView = parent.getChildAt(0);
 
             int position = parent.getChildAdapterPosition(firstView);
             String text = bindItemTextCallback.getItemText(position);
 
-            //如果悬停view的底部小于悬停布局的高度说明正在上滑，就让他随着滑动逐渐滑进去，否则就固定悬停位置不边
-            //isFirstInGroup(position+1)是下一个item是另外分组第一个的时候当前item才滚动上去
             if (firstView.getBottom() <= itemHeight && isFirstInGroup(position + 1)) {
                 c.drawRect(0, 0, width, firstView.getBottom(), itemHoverPaint);
                 drawText(c, firstView.getBottom() - itemHeight, firstView.getBottom(), text);
@@ -149,7 +137,6 @@ public class HoverItemDecoration extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         int position = parent.getChildAdapterPosition(view);
-        //如果是分组第一个就留出绘制item的高度
         if (isFirstInGroup(position)) {
             outRect.top = itemHeight;
         }else {
@@ -160,9 +147,9 @@ public class HoverItemDecoration extends RecyclerView.ItemDecoration {
 
 
     /**
-     * 绘制文字
+     * 缁樺埗鏂囧瓧
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     private void drawText(Canvas canvas, int itemTop, int itemBottom, String textString) {
 
@@ -173,7 +160,6 @@ public class HoverItemDecoration extends RecyclerView.ItemDecoration {
 
         Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
         int baseline = (textRect.bottom + textRect.top - fontMetrics.bottom - fontMetrics.top) / 2;
-        //文字绘制到整个布局的中心位置
         canvas.drawText(textString, textRect.left, baseline, textPaint);
     }
 
@@ -184,7 +170,6 @@ public class HoverItemDecoration extends RecyclerView.ItemDecoration {
         } else {
             String prevItemText = bindItemTextCallback.getItemText(position - 1);
             String currentItemText = bindItemTextCallback.getItemText(position);
-            //上一个和当前位置的值一样说明是同一个组的否则就是新的一组
             if (prevItemText.equals(currentItemText)) {
                 return false;
             } else {
@@ -221,3 +206,4 @@ public class HoverItemDecoration extends RecyclerView.ItemDecoration {
     }
 
 }
+

@@ -1,8 +1,8 @@
 package com.allen.androidcustomview.widget.banner;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -74,7 +74,7 @@ public class BannerView extends RelativeLayout implements ViewPager.OnPageChange
 
     @Override
     public void onPageSelected(int position) {
-        // 切换indicator
+        // 鍒囨崲indicator
         setIndicatorSelected(position);
 
         setOnPageSelectedListener(position);
@@ -93,7 +93,7 @@ public class BannerView extends RelativeLayout implements ViewPager.OnPageChange
     }
 
     /**
-     * 设置 PagerOptions
+     * 璁剧疆 PagerOptions
      *
      * @param options options
      * @return BannerPager<T>
@@ -104,7 +104,7 @@ public class BannerView extends RelativeLayout implements ViewPager.OnPageChange
     }
 
     /**
-     * 设置 page data
+     * 璁剧疆 page data
      *
      * @param data    List<T>
      * @param creator BannerViewHolderCreator
@@ -157,17 +157,18 @@ public class BannerView extends RelativeLayout implements ViewPager.OnPageChange
     }
 
     private void handlePagerOptions() {
-        //设置每页之间间距
+        //璁剧疆姣忛〉涔嬮棿闂磋窛
         mViewPager.setPageMargin(mPagerOptions.mPageMargin);
-        //设置预显示宽
+        //璁剧疆棰勬樉绀哄
         final ViewGroup.MarginLayoutParams mp = (MarginLayoutParams) mViewPager.getLayoutParams();
         mp.leftMargin = mp.rightMargin = mPagerOptions.mPrePagerWidth;
         mViewPager.setLayoutParams(mp);
 
-        //设置切换效果
+        //璁剧疆鍒囨崲鏁堟灉
         mViewPager.setPageTransformer(true, mPagerOptions.mPageTransformer);
         mAdapter.setPageClickListener(mPagerOptions.mOnPageClickListener);
 
     }
 
 }
+

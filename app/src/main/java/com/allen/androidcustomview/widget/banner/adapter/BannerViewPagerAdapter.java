@@ -1,7 +1,7 @@
 package com.allen.androidcustomview.widget.banner.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -57,7 +57,7 @@ public class BannerViewPagerAdapter<T> extends PagerAdapter {
 
 
     /**
-     * 获取真实的Count
+     * 鑾峰彇鐪熷疄鐨凜ount
      *
      * @return
      */
@@ -92,7 +92,7 @@ public class BannerViewPagerAdapter<T> extends PagerAdapter {
             holder.onBind(container.getContext(), realPosition, mData.get(realPosition));
         }
 
-        // 添加page点击事件
+        // 娣诲姞page鐐瑰嚮浜嬩欢
         if (view != null) {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -120,3 +120,4 @@ public class BannerViewPagerAdapter<T> extends PagerAdapter {
         this.mPageClickListener = pageClickListener;
     }
 }
+

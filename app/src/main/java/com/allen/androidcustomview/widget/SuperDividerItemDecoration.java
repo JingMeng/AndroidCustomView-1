@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -15,8 +15,7 @@ import android.widget.LinearLayout;
  *      @author : Allen
  *      e-mail  : lygttpod@163.com
  *      date    : 2018/04/15
- *      desc    : 万能分割线
- *      version : 1.0
+ *      desc    : 涓囪兘鍒嗗壊绾? *      version : 1.0
  * </pre>
  */
 public class SuperDividerItemDecoration extends RecyclerView.ItemDecoration {
@@ -29,58 +28,56 @@ public class SuperDividerItemDecoration extends RecyclerView.ItemDecoration {
 
 
     /**
-     * 默认分割线的颜色
+     * 榛樿鍒嗗壊绾跨殑棰滆壊
      */
     private int dividerDefaultColor = 0xFFE1E5E8;
 
     /**
-     * 分割线的颜色
+     * 鍒嗗壊绾跨殑棰滆壊
      */
     private int dividerColor;
     /**
-     * 分割线的宽度
+     * 鍒嗗壊绾跨殑瀹藉害
      */
     private int dividerWidth;
     /**
-     * 分割线距离左右两边的距离
+     * 鍒嗗壊绾胯窛绂诲乏鍙充袱杈圭殑璺濈
      */
     private int dividerPadding;
     /**
-     * 分割线距离左边的距离
+     * 鍒嗗壊绾胯窛绂诲乏杈圭殑璺濈
      */
     private int dividerPaddingLeft;
     /**
-     * 分割线距离右边的距离
+     * 鍒嗗壊绾胯窛绂诲彸杈圭殑璺濈
      */
     private int dividerPaddingRight;
 
     /**
-     * 分割线距离上边的距离
+     * 鍒嗗壊绾胯窛绂讳笂杈圭殑璺濈
      */
     private int dividerPaddingTop;
     /**
-     * 分割线距离下边的距离
+     * 鍒嗗壊绾胯窛绂讳笅杈圭殑璺濈
      */
     private int dividerPaddingBottom;
     /**
-     * 是否显示列表最后一条分割线
+     * 鏄惁鏄剧ず鍒楄〃鏈€鍚庝竴鏉″垎鍓茬嚎
      */
     private boolean dividerIsShowLastDivide;
 
 
     /**
-     * 分割线item的画笔
-     */
+     * 鍒嗗壊绾縤tem鐨勭敾绗?     */
     private Paint dividerPaint;
 
     /**
-     * 分割线开始的位置（解决recyclerView添加头布局的时候，要从header下边的position位置算起）
-     */
+     * 鍒嗗壊绾垮紑濮嬬殑浣嶇疆锛堣В鍐硆ecyclerView娣诲姞澶村竷灞€鐨勬椂鍊欙紝瑕佷粠header涓嬭竟鐨刾osition浣嶇疆绠楄捣锛?     */
     private int dividerFromPosition = 0;
 
 
     /**
-     * recyclerView布局方式（水平或者垂直）
+     * recyclerView甯冨眬鏂瑰紡锛堟按骞虫垨鑰呭瀭鐩达級
      */
     private int orientation;
 
@@ -201,7 +198,6 @@ public class SuperDividerItemDecoration extends RecyclerView.ItemDecoration {
             int showCount = dividerIsShowLastDivide ? count : count - 1;
             for (int i = dividerFromPosition; i < showCount; i++) {
                 View view = parent.getChildAt(i);
-                //可见item的底部
                 int itemBottom = view.getBottom();
 
                 c.drawRect(parent.getPaddingLeft() + dividerPaddingLeft,
@@ -219,7 +215,6 @@ public class SuperDividerItemDecoration extends RecyclerView.ItemDecoration {
             int showCount = dividerIsShowLastDivide ? count : count - 1;
             for (int i = dividerFromPosition; i < showCount; i++) {
                 View view = parent.getChildAt(i);
-                //可见item的底部
                 int itemRight = view.getRight();
 
                 c.drawRect(itemRight,
@@ -253,3 +248,4 @@ public class SuperDividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
 }
+

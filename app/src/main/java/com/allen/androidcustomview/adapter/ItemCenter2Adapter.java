@@ -1,7 +1,7 @@
 package com.allen.androidcustomview.adapter;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -41,7 +41,7 @@ public class ItemCenter2Adapter extends BaseQuickAdapter<String, BaseViewHolder>
     protected void convert(BaseViewHolder helper, String item) {
         View itemRoot = helper.getView(R.id.item_root);
         p = (ViewGroup.MarginLayoutParams) itemRoot.getLayoutParams();
-        // 为了居中， 第一个条目leftMagrin、最后一个条目的rightMargin是（recyclerView宽度减去一个条目的宽度）/2
+        // 涓轰簡灞呬腑锛?绗竴涓潯鐩甽eftMagrin銆佹渶鍚庝竴涓潯鐩殑rightMargin鏄紙recyclerView瀹藉害鍑忓幓涓€涓潯鐩殑瀹藉害锛?2
         int margin = (mRecyclerViewWidth - p.width) / 2;
         if (helper.getLayoutPosition() == 0) {
             p.leftMargin = margin;
@@ -69,12 +69,12 @@ public class ItemCenter2Adapter extends BaseQuickAdapter<String, BaseViewHolder>
         int[] location = new int[2];
         view.getLocationOnScreen(location);
         int currentX = location[0];
-        int currentCenterX = (int) (currentX + p.width / 2 * 0.8f);//因为除了中间外的其他条目是被缩放为0.8的状态
+        int currentCenterX = (int) (currentX + p.width / 2 * 0.8f);
         int recyclerViewCenterX = mRecyclerViewWidth / 2;
         int offX = currentCenterX - recyclerViewCenterX;
 
-        if (Math.abs(offX) > p.width / 2 * 0.21f) {//因为已经居中的Item，已经被放大到比例1了
-            recyclerView.smoothScrollBy(offX, 0);
+        if (Math.abs(offX) > p.width / 2 * 0.21f) {//鍥犱负宸茬粡灞呬腑鐨処tem锛屽凡缁忚鏀惧ぇ鍒版瘮渚?浜?            recyclerView.smoothScrollBy(offX, 0);
         }
     }
 }
+

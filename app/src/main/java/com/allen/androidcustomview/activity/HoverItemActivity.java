@@ -1,10 +1,10 @@
 package com.allen.androidcustomview.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.allen.androidcustomview.R;
@@ -38,14 +38,13 @@ public class HoverItemActivity extends AppCompatActivity {
 
     private List<UserBean> userBeans = new ArrayList<>();
 
-    private String[] names = new String[]{"阿妹", "打黑牛", "张三", "李四", "王五", "田鸡", "孙五"};
+    private String[] names = new String[]{"阿妹", "打黑牌", "张三", "李四", "王五", "田鸡", "孙五"};
 
     /**
-     * 汉字转换成拼音的类
-     */
+     * 姹夊瓧杞崲鎴愭嫾闊崇殑绫?     */
     private CharacterParser characterParser;
     /**
-     * 根据拼音来排列ListView里面的数据类
+     * 鏍规嵁鎷奸煶鏉ユ帓鍒桳istView閲岄潰鐨勬暟鎹被
      */
     private PinyinComparator pinyinComparator;
 
@@ -68,11 +67,10 @@ public class HoverItemActivity extends AppCompatActivity {
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        //一行代码实现吸顶悬浮的效果
+        //涓€琛屼唬鐮佸疄鐜板惛椤舵偓娴殑鏁堟灉
         recyclerView.addItemDecoration(new HoverItemDecoration(this, new HoverItemDecoration.BindItemTextCallback() {
             @Override
             public String getItemText(int position) {
-                //悬浮的信息
                 return userBeans.get(position).getSortLetters();
             }
         }));
@@ -85,14 +83,14 @@ public class HoverItemActivity extends AppCompatActivity {
     }
 
     /**
-     * 初始化右边字幕索引view
+     * 鍒濆鍖栧彸杈瑰瓧骞曠储寮晇iew
      */
     private void initIndexView() {
         indexView.setShowTextDialog(showTextDialog);
         indexView.setOnTouchingLetterChangedListener(new IndexView.OnTouchingLetterChangedListener() {
             @Override
             public void onTouchingLetterChanged(String letter) {
-                // 该字母首次出现的位置
+                // 璇ュ瓧姣嶉娆″嚭鐜扮殑浣嶇疆
                 int position = getPositionForSection(letter);
                 if (position != -1) {
                     layoutManager.scrollToPositionWithOffset(position, 0);
@@ -130,11 +128,10 @@ public class HoverItemActivity extends AppCompatActivity {
             if ("".equals(sortList.get(i).getUserName())) {
                 sortList.get(i).setSortLetters("#");
             } else {
-                // 汉字转换成拼音
                 String pinyin = characterParser.getSelling(sortList.get(i).getUserName());
                 String sortString = pinyin.substring(0, 1).toUpperCase();
 
-                // 正则表达式，判断首字母是否是英文字母
+                // 姝ｅ垯琛ㄨ揪寮忥紝鍒ゆ柇棣栧瓧姣嶆槸鍚︽槸鑻辨枃瀛楁瘝
                 if (sortString.matches("[A-Z]")) {
                     sortList.get(i).setSortLetters(sortString.toUpperCase());
                 } else {
@@ -144,10 +141,10 @@ public class HoverItemActivity extends AppCompatActivity {
 
         }
 
-        // 根据a-z进行排序源数据
-        Collections.sort(sortList, pinyinComparator);
+        // 鏍规嵁a-z杩涜鎺掑簭婧愭暟鎹?        Collections.sort(sortList, pinyinComparator);
 
         return sortList;
     }
 
 }
+

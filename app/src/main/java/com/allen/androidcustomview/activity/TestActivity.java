@@ -4,8 +4,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.CycleInterpolator;
@@ -18,7 +18,7 @@ import com.allen.androidcustomview.widget.TXWaveViewByBezier;
 
 /**
  * Created by a111 on 2018/6/15.
- * 实现水波动画
+ * 瀹炵幇姘存尝鍔ㄧ敾
  */
 
 public class TestActivity extends AppCompatActivity {
@@ -63,23 +63,21 @@ public class TestActivity extends AppCompatActivity {
 //
 //
 //
-//        //设置插值器
+//        //璁剧疆鎻掑€煎櫒
 //        aset.setInterpolator(new LinearInterpolator());
-//        //设置动画持续时长
+//        //璁剧疆鍔ㄧ敾鎸佺画鏃堕暱
 //        aset.setDuration(3000);
-//        //设置动画结束之后是否保持动画的目标状态
-//        aset.setFillAfter(true);
-//        //设置动画结束之后是否保持动画开始时的状态
-//        aset.setFillBefore(true);
-//        //设置重复模式
+//        //璁剧疆鍔ㄧ敾缁撴潫涔嬪悗鏄惁淇濇寔鍔ㄧ敾鐨勭洰鏍囩姸鎬?//        aset.setFillAfter(true);
+//        //璁剧疆鍔ㄧ敾缁撴潫涔嬪悗鏄惁淇濇寔鍔ㄧ敾寮€濮嬫椂鐨勭姸鎬?//        aset.setFillBefore(true);
+//        //璁剧疆閲嶅妯″紡
 //        aset.setRepeatMode(AnimationSet.REVERSE);
 //        //aset
 //        aset.setRepeatCount(AnimationSet.INFINITE);
-//        //设置动画延时时间
+//        //璁剧疆鍔ㄧ敾寤舵椂鏃堕棿
 //        aset.setStartOffset(2000);
-//        //取消动画
+//        //鍙栨秷鍔ㄧ敾
 ////        aset.cancel();
-//        //释放资源
+//        //閲婃斁璧勬簮
 ////        aset.reset();
 //
 //
@@ -136,3 +134,4 @@ public class TestActivity extends AppCompatActivity {
         return translateAnimation;
     }
 }
+
